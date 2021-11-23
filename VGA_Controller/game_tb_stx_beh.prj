@@ -1,0 +1,2 @@
+vhdl isim_temp "game.vhd"
+vhdl isim_temp "game_tb.vhd"
