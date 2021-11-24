@@ -1,4 +1,0 @@
-AR vgatest test "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Controller/vgatest.vhd" sub00/vhpl03 1637540592
-AR game behavioral "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Controller/game.vhd" sub00/vhpl01 1637617429
-EN game NULL "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Controller/game.vhd" sub00/vhpl00 1637617428
-EN vgatest NULL "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Controller/vgatest.vhd" sub00/vhpl02 1637540591
