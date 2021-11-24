@@ -1,0 +1,5 @@
+set -tmpdir "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Pong/xst/projnav.tmp"
+set -xsthdpdir "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Pong/xst"
+elaborate
+-ifn paddle.prj
+-ifmt mixed

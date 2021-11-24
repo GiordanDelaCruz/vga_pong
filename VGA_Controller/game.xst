@@ -1,5 +1,0 @@
-set -tmpdir "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Controller/xst/projnav.tmp"
-set -xsthdpdir "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Controller/xst"
-elaborate
--ifn game.prj
--ifmt mixed

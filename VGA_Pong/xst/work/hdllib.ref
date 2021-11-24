@@ -1,0 +1,6 @@
+AR ball behavioral "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Pong/ball.vhd" sub00/vhpl05 1637720411
+EN ball NULL "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Pong/ball.vhd" sub00/vhpl04 1637720410
+AR paddle behavioral "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Pong/paddle.vhd" sub00/vhpl03 1637717305
+PB obj_package obj_package "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Pong/obj_package.vhd" sub00/vhpl01 1637720409
+EN paddle NULL "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Pong/paddle.vhd" sub00/vhpl02 1637717304
+PH obj_package NULL "/home/student1/gadelacr/Year 4/coe758/projects/project_2/VGA_Pong/obj_package.vhd" sub00/vhpl00 1637720408
