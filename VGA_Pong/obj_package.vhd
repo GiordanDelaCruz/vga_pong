@@ -53,13 +53,7 @@ package obj_package is
 		up 				: std_logic;
 		down 				: std_logic;
 	end record;
-	
-	type score is
-	record
-		left : integer range 0 to 7;
-		right : integer range 0 to 7;
-	end record;
-	
+
 
 	-- Used to determine which side a paddle should be placed
 	type position_side is (left, right);	
@@ -78,12 +72,11 @@ package obj_package is
 	-- Speed Constant
 	constant STATIC: velocity := (vel_x => 0, vel_y => 0);
 	
+	
 	-- Default States of Objects
 	constant DEFAULT_OBJ: main_object := (pos => ORIGIN, width => 0, height => 0, vel => STATIC);
 	constant DEFAULT_DRAW: draw_object := (pixelOn => false, rgb => (others => '0'));
 	
-	-- Default Score 
-	constant DEFAULT_SCORE: score := (left => 0, right => 0);
 
 	-- Declare Functions
 	function set_boundary(object : main_object) return boundary;
