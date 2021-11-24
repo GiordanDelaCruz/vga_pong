@@ -7,6 +7,10 @@ package obj_package is
 	constant X_ACTIVE: integer := 640;
 	constant Y_ACTIVE: integer := 480;
 	
+	-- Clock counters
+	--variable clk_count: integer := 0;
+	--variable slow_down_factor: integer := 500000;
+			
 	--*** 						MY CODE						***--
 	-- Define Custom Data Types (Similar to Type Def Struct in C)
 	type coordinates is 
@@ -61,10 +65,6 @@ package obj_package is
 	
 	
 	-- ***		Define Constants				***--
-	-- Default States of Objects
-	constant default_obj: main_object := (pos => ORIGIN, width => 0, height => 0, vel => STATIC);
-	constant default_draw: draw := (pixelOn => false, rgb => (others => '0'));
-	
 	-- Position Constants
 	constant ORIGIN: coordinates := (x => 0, y => 0);
 	constant CENTER: coordinates := (x => 319, y => 239);
@@ -72,10 +72,16 @@ package obj_package is
 	-- Speed Constant
 	constant STATIC: velocity := (vel_x => 0, vel_y => 0);
 	
+	
+	-- Default States of Objects
+	constant DEFAULT_OBJ: main_object := (pos => ORIGIN, width => 0, height => 0, vel => STATIC);
+	constant DEFAULT_DRAW: draw_object := (pixelOn => false, rgb => (others => '0'));
+	
+
 	-- Declare Functions
-	function set_boundary(colObject : main_object) return boundary;
-	function check_collision_x( colObject_1, colObject_2 : main_object) return boolean;
-	function check_collision_y( colObject_1, colObject_2 : main_object) return boolean;
+	function set_boundary(object : main_object) return boundary;
+	function check_collision_x( object_1, object_2 : main_object) return boolean;
+	function check_collision_y( object_1, object_2 : main_object) return boolean;
 	--*** 				END OF MY CODE						***--
 
 end obj_package;
@@ -93,13 +99,14 @@ package body obj_package is
 		constant OBJ_TOP  			: integer	:= object.pos.y;
 		constant OBJ_BOTTOM  		: integer	:= object.pos.y + object.height -1;
 		
-		begin 
-			bound.left 			:= OBJ_LEFT_SIDE;
-			bound.right 		:= OBJ_RIGHT_SIDE;
-			bound.top 			:= OBJ_TOP;
-			bound.right 		:= OBJ_BOTTOM; 
+	begin 
+			bounds.left 			:= OBJ_LEFT_SIDE;
+			bounds.right 			:= OBJ_RIGHT_SIDE;
+			bounds.top 				:= OBJ_TOP;
+			bounds.bottom 			:= OBJ_BOTTOM; 
 			
 			return bounds;
+			
 	end set_boundary;
 	
 	function check_collision_x( object_1, object_2 : main_object) return boolean is
@@ -113,7 +120,7 @@ package body obj_package is
 		variable hit_case_1, hit_case_2: boolean;
 		variable hit_1, hit_2, condition_1, condition_2: boolean;
 		
-		begin 
+	begin 
 			-- Create boundaries for each object
 			object_1_bounds := set_boundary(object_1);
 			object_2_bounds := set_boundary(object_2);
@@ -145,7 +152,7 @@ package body obj_package is
 		variable hit_case_1, hit_case_2: boolean;
 		variable hit_1, hit_2, condition_1, condition_2: boolean;
 		
-		begin 
+	begin 
 			-- Create boundaries for each object
 			object_1_bounds := set_boundary(object_1);
 			object_2_bounds := set_boundary(object_2);
