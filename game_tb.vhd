@@ -82,10 +82,13 @@ ARCHITECTURE behavior OF Game_tb IS
    signal blue : std_logic_vector(1 downto 0);
    signal h_pixel : integer := 0;
    signal v_pixel : integer := 0;
+	signal score : score := DEFAULT_SCORE;
 	
 	-- intermediate signals
 	signal col_objects: collision_obj_arr(0 to 1) := (others => DEFAULT_OBJ);
+	signal ball : main_object := DEFAULT_OBJ;
 	signal draw_elements : draw_obj_arr (0 to 2) := (others => DEFAULT_DRAW);
+
 
    -- Clock period definitions
    constant clk_period : time := 10 ns;
@@ -128,14 +131,29 @@ BEGIN
 		rgb_color => "00001011"
 	)
 	PORT MAP (
+		clk => clk,
+		reset => reset,
+		p_controls => p2_controls,
+		h_count => h_pixel,
+		v_count => v_pixel,
+		col_object => col_objects(1),
+		draw_element => draw_elements(1)
+	);	  
+	
+	b: entity work.ball
+--		GENERIC MAP(
+--			rgb_color => "01101111"
+--		)
+		PORT MAP(
+			reset	=> reset,
 			clk => clk,
-			reset => reset,
-			p_controls => p2_controls,
 			h_count => h_pixel,
 			v_count => v_pixel,
-			col_object => col_objects(1),
-			draw_element => draw_elements(1)
-	);	  
+			col_object => ball,
+			col_object_array => col_objects,
+			score_signal => score,	
+			draw_element => draw_elements(2)
+		);
 
    -- Clock process definitions
 	process(clk)
@@ -174,10 +192,14 @@ BEGIN
 		
 		wait for 10 ns;
 		reset <= '1';
-		wait for 20 ns;
+		wait for 100 ns;
 		reset <= '0';
 
       -- insert stimulus here 
+		
+		p1_controls.up <= '1';
+		wait for 40000000 ns;
+		p2_controls.down <= '1';
 
       wait;
    end process;
